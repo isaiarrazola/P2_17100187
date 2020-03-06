@@ -1,0 +1,83 @@
+MSN
+
+PAGINA 79
+
+roberto.dp@nlaredo.tecnm.mx
+
+dentro del folder pondremos UNDIAD 1
+
+
+tareas que faltan
+
+-sadoval
+
+- puerto leer (investigacion examen)
+
+
+"SELECTORES pipe lo presento DE RELACION"
+, es un separador
+> agarra los hijos directos
++ el hermano adyacente
+~ agarra a todos los hermanos sin importar la posicion
+
+h2,#par 3 = selecciona todos los h2 y el otro es un parrafo 3
+
+p + div agarra los div que tengan por detras un parrafo
+
+p ~ div {color: red;}
+
+
+
+-casta
+
+
+- buscar una metodologia, una herramienta y un procedimiento de ingenieria software
+
+-TCP / IP PARA CADA HOST
+configurar toda la simulacion con los host de su equipo
+
+
++
+
+
+
+
+
+¡ SI x > pesoRopa
+ENT SAL ("El peso es mucho mayor que el aceptado")
+SN SAL ("Se preparara el lavado")
+FIN
+
+
+regla
+identificador
+constantes???
+carateres especiales no meter mas de los que usare
+operadores logicos operacionales
+comentarios con cadenas o lo quesea
+
+tarea zarate
+- FUNCION CLIMA recibe como parametro lo que sea
+a) helado menor a 0
+b) frio 0 <> 10
+c) calido 10<> 20
+d) sofocante 20 <> 30
+e abrasivo > 30
+
+resumen de askidoc
+-posicionamientos
+-unidades de medida
+-cascada 
+-especificidad
+
+ZARATE
+
+Definir una funcion que dados tres numeros X, Y ,Z, devuelva una lista con los numeros ordenados por orden creciente.
+
+Definir una funcion que tomando como argumentos una lista y un elemento, devuelva T si el elemento aparece mas de una vez en la lista
+
+
+
+
+
+HAZ TODOOO
