@@ -1,0 +1,186 @@
+=  Resumen de la unidad 1
+
+=== -Descripción del modelo de caja
+
+Las partes que componen cada caja y su orden de visualización desde el punto de vista del usuario son las siguientes:
+
+**Contenido (content):** se trata del contenido HTML del elemento (las palabras de un párrafo, una imagen, el texto de una lista de elementos, etc.)
+
+**Relleno (padding):** espacio libre opcional existente entre el contenido y el borde.
+
+**Borde (border):** línea que encierra completamente el contenido y su relleno.
+
+**Imagen de fondo (background image):** imagen que se muestra por detrás del contenido y el espacio de relleno.
+
+**Color de fondo (background color):** color que se muestra por detrás del contenido y el espacio de relleno.
+
+**Margen (margin):** separación opcional existente entre la caja y el resto de cajas adyacentes.
+
+El relleno y el margen son transparentes, por lo que en el espacio ocupado por el relleno se muestra el color o imagen de fondo (si están definidos) y en el espacio ocupado por el margen se muestra el color o imagen de fondo de su elemento padre (si están definidos). Si ningún elemento padre tiene definido un color o imagen de fondo, se muestra el color o imagen de fondo de la propia página (si están definidos).
+
+=== -Explicacion de la propiedad display
+
+la propiedad establece los tipos de visualización interna y externa de un elemento . El tipo externo establece la participación de un elemento en el diseño del flujo ; el tipo interno establece el diseño de los niños. 
+
+Algunos valores de displayestán completamente definidos en sus propias especificaciones individuales; por ejemplo, el detalle de lo que sucede cuando display: flexse declara se define en la especificación del Modelo de caja flexible de CSS. Consulte la tabla al final de este documento para ver todas las especificaciones individuales.
+
+los mas usados para mi fueron estos:
+
+**<display-box>**
+
+Estos valores definen si un elemento genera cuadros de visualización.
+
+- contents 
+
+Estos elementos no producen una caja específica por sí mismos. Son reemplazados por su pseudo-caja y sus cajas secundarias. Tenga en cuenta que la especificación CSS Display Level 3 define cómo el contentsvalor debería afectar a los "elementos inusuales": elementos que no se representan únicamente por conceptos de cuadro CSS, como los elementos reemplazados. Consulte el Apéndice B: Efectos de visualización: contenido en elementos inusuales para más detalles.
+
+- none
+
+Desactiva la visualización de un elemento para que no tenga ningún efecto en el diseño (el documento se representa como si el elemento no existiera). Todos los elementos descendientes también tienen su pantalla apagada.
+Para que un elemento ocupe el espacio que normalmente ocuparía, pero sin representar realmente nada, utilice la visibilitypropiedad en su lugar.
+
+=== -concepto de flujo de documento
+
+Cuando tratamos con etiquetas, existen dos modos principales de de comportamiento. Etiquetas como una imagen, o una negrita, que funcionan en línea ("inline"), es decir, que se colocan en la línea donde se está escribiendo y donde los elementos siguientes, siempre que también sean "inline" se posicionan todo seguido en la misma línea. Tenemos por otra parte los elementos que funcionan como bloque ("block") que implican saltos de línea antes y después del elemento. Por ejemplo, los párrafos o encabezamientos son elementos con comportamiento predeterminado tipo "block".
+
+=== -Posicionamientos
+
+El significado de cada uno de los posibles valores de la propiedad position es el siguiente:
+
+**static:** corresponde al posicionamiento normal o estático. Si se utiliza este valor, se ignoran los valores de las propiedades top, right, bottom y left que se verán a continuación. 
+
+**relative:** corresponde al posicionamiento relativo. El desplazamiento de la caja se controla con las propiedades top, right, bottom y left.
+
+**absolute:** corresponde al posicionamiento absoluto. El desplazamiento de la caja también se controla con las propiedades top, right, bottom y left, pero su interpretación es mucho más compleja, ya que el origen de coordenadas del desplazamiento depende del posicionamiento de su elemento contenedor.
+
+**fixed:** corresponde al posicionamiento fijo. El desplazamiento se establece de la misma forma que en el posicionamiento absoluto, pero en este caso el elemento permanece inamovible en la pantalla.
+
+La propiedad position no permite controlar el posicionamiento flotante, que se establece con otra propiedad llamada float y que se explica más adelante. Además, la propiedad position sólo indica cómo se posiciona una caja, pero no la desplaza. 
+
+=== -Unidades de medida
+|==== 
+| unidades fijas | Unidades relativas
+
+|**px:** Píxeles +
+|**%:** porcentaje +
+|**in:** Pulgadas (1 in es igual a 96px) +
+|**em:** Altura de la fuente +
+|**pt:** Puntos (1 pt es igual a 1/72 in) +
+|**rem:** Root-em +
+|**cm:** Centímetros +
+|**vw:** Viewport width +
+|**mm:** Milímetros +
+|**vh:** Viewport Height +
+|**pc:** Picas
+|**vmin:** Viewport menor, entre altura o anchura 
+
+|Son aquellas que especifican una medida en términos absolutos, sin tener en cuenta el contexto donde se están aplicando. Por ejemplo 300px (300 píxeles) es algo bastante fijo, que tendrá un valor independientemente de dónde se haya definido. 300px son siempre eso, 300px, independientemente de si tu contenedor tiene una anchura de 2000px o de 500px.
+|
+Las unidades relativas de CSS son aquellas que tienen en cuenta el contexto donde se encuentran. Son relativas a las dimensiones del contenedor donde se han definido. Por ejemplo %, es una unidad relativa, puesto que 30% de ancho no será lo mismo para un elemento situado dentro de un contenedor de 2000px de anchura o sobre un contenedor de 1000px de anchura.
+|==== 
+
+=== -Cascada 
+
+Reglas distintas que se aplican al mismo elemento +
+Dos reglas distintas se aplican a un mismo elemento cuando el elemento coincide con los selectores de ambas reglas. La regla que se aplica es la del selector de mayor especificidad. La especificidad de un selector se calcula atendiendo a los siguientes criterios:
+
+* Número de atributos id en el selector +
+* Número de otros atributos y pseudo-clases en el selector (los pseudo-elementos se ignoran) +
+* Número de elementos en el selector +
+* Posición en la hoja de estilo +
+
+Estos criterios se aplican en orden, es decir, primero se comparan el número de atributos id de cada selector. Si un selector tiene más que el otro, se aplica esa regla, si el número es el mismo, entonces se calcula el segundo criterio (número de otros atributos y pseudo-clases). Y así sucesivamente.
+
+=== -pseudoelementos
+
+Los selectores de CSS, las pseudo-clases y todos los elementos HTML no son suficientes para poder aplicar estilos a algunos elementos especiales. Si se desea por ejemplo cambiar el estilo de la primera línea de texto de un elemento, no es posible hacerlo con las utilidades anteriores.
+
+**:first-line**
+
+El pseudo-elemento :first-line permite seleccionar la primera línea de texto de un elemento. Así, la siguiente regla CSS muestra en mayúsculas la primera línea de cada párrafo:
+
+p:first-line { text-transform: uppercase; }
+Este pseudo-elemento sólo se puede utilizar con los elementos de bloque y las celdas de datos de las tablas.
+
+Se pueden combinar varios pseudo-elementos de tipo :first-line para crear efectos avanzados:
+
+div:first-line { color: red; }
+p:first-line { text-transform: uppercase; }
+
+**:first-letter**
+
+El pseudo-elemento :first-letter permite seleccionar la primera letra de la primera línea de texto de un elemento. De esta forma, la siguiente regla CSS muestra en mayúsculas la primera letra del texto de cada párrafo:
+
+p:first-letter { text-transform: uppercase; }
+
+**:before y :after**
+
+Los pseudo-elementos :before y :after se utilizan en combinación con la propiedad content de CSS para añadir contenidos antes o después del contenido original de un elemento.
+
+h1:before { content: "Capítulo - "; }
+p:after   { content: "."; }
+
+=== -Pseudoclases
+
+**:first-child**
+
+La pseudo-clase :first-child selecciona el primer elemento hijo de un elemento. Si se considera el siguiente ejemplo:
+
+p em:first-child {
+  color: red;
+}
+
+El selector p em:first-child selecciona el primer elemento <em> que sea hijo de un elemento y que se encuentre dentro de un elemento <p>. Por tanto, en el ejemplo anterior sólo el primer <em> se ve de color rojo.
+
+**:link y :visited**
+
+Las pseudo-clases :link y :visited se pueden utilizar para aplicar diferentes estilos a los enlaces de una misma página:
+
+- :link se aplica a todos los enlaces que todavía no han sido visitados por el usuario.
+- :visited se aplica a todos los enlaces que han sido visitados al menos una vez por el usuario.
+
+Como los navegadores muestran por defecto los enlaces de color azul y los enlaces visitados de color morado, es habitual modificar los estilos para adaptarlos a la guía de estilo del sitio web:
+
+a:link    { color: red;   }
+a:visited { color: green; }
+
+**:hover, :active y :focus**
+
+Las pseudo-clases :hover, :active y :focus permiten al diseñador web variar los estilos de un elemento en respuesta a las acciones del usuario. Al contrario que las pseudo-clases :link y :visited que sólo se pueden aplicar a los enlaces, estas pseudo-clases se pueden aplicar a cualquier elemento.
+
+A continuación se indican las acciones del usuario que activan cada pseudo-clase:
+
+**:hover**: se activa cuando el usuario pasa el ratón o cualquier otro elemento apuntador por encima de un elemento.
+
+**:active**: se activa cuando el usuario activa un elemento, por ejemplo cuando pulsa con el ratón sobre un elemento. El estilo se aplica durante un espacio de tiempo prácticamente imperceptible, ya que sólo dura desde que el usuario pulsa el botón del ratón hasta que lo suelta.
+
+**:focus**: se activa cuando el elemento tiene el foco del navegador, es decir, cuando el elemento está seleccionado. Normalmente se aplica a los elementos <input> de los formularios cuando están activados y por tanto, se puede escribir directamente en esos campos.
+
+
+Por último, también es posible aplicar estilos combinando varias pseudo-clases compatibles entre sí. La siguiente regla CSS por ejemplo sólo se aplica a aquellos enlaces que están seleccionados y en los que el usuario pasa el ratón por encima:
+
+a:focus:hover { ... }
+
+**:lang**
+
+La pseudo-clase :lang se emplea para seleccionar elementos en función de su idioma. Los navegadores utilizan los atributos lang, las etiquetas <meta> y la información de la respuesta del servidor para determinar el idioma de cada elemento.
+
+Si se considera el siguiente ejemplo:
+
+p { color: blue; }
+p:lang(es) { color: red; }
+Los párrafos del ejemplo anterior se ven de color azul, salvo los párrafos cuyo contenido esté escrito en español, que se ven de color rojo.
+
+Como los navegadores actuales no son capaces de inferir el idioma de un elemento a partir de su contenido, el uso de esta clase está muy limitado salvo que la página utilice de forma explícita los atributos lang:
+
+=== -Especificidad
+
+Especificidad es la manera mediante la cual los navegadores deciden qué valores de una propiedad CSS son más relevantes para un elemento y, por lo tanto, serán aplicados. La especificidad está basada en las reglas de coincidencia que están compuestas por diferentes tipos de selectores CSS.
+
+¿Cómo se calcula?
+
+La especificidad es un peso (importancia o valor) que se le asigna a una declaración CSS dada, determinada por el número correspondiente de cada tipo de selector. Cuando varias declaraciones tienen igual especificidad, se aplicará al elemento la última declaración encontrada en el CSS. La especificidad solo se aplica cuando el mismo elemento es objetivo de múltiples declaraciones. Según las reglas de CSS, en caso de que un elemento sea objeto de una declaración directa, esta siempre tendrá preferencia sobre las reglas heredadas de su ancestro.
+
+
+image::data:image/png;base64,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[]
+
